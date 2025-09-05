@@ -42,8 +42,9 @@ describe('template spec', () => {
     logger.step('rellenar formulario de inicio de sesion')
     loginMethod.signIn(email,password)
     logger.verification('valida el nombre del usuario al iniciar sesion')
-    //cy.get('.nav-link').should('contain.text', userName);
     cy.get(`a.nav-link[href="/@${userName}"]`).should('contain.text', userName);
+    
+    
     cy.wait(3000)
   })
 })
