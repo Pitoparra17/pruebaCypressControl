@@ -5,7 +5,7 @@ export class registerMethod{
         registerElement.textboxes.userName.invoke('val',userName)
     }
     static insertEmail(email){
-        registerElement.textboxes.password.invoke('val',email)
+        registerElement.textboxes.email.invoke('val',email)
     }
     static insertPassword(password){
         registerElement.textboxes.password.invoke('val',password)
