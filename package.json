@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/Pitoparra17/pruebaCypressControl#readme",
   "devDependencies": {
-    "cypress": "^15.1.0"
+    "cypress": "^15.1.0",
+    "rimraf": "^6.0.1"
   },
   "dependencies": {
     "@shelex/cypress-allure-plugin": "^2.41.2",
