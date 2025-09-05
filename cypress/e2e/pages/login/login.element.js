@@ -12,7 +12,7 @@ export class loginElement{
     static get buttons(){
         return{
             get signIn(){
-                return cy.contains('button', 'Sign in')               
+                return cy.get('button[type="submit"]')               
             }
         }
     }

@@ -14,7 +14,7 @@ export class registerElement{
                 return cy.get('input[type="text"]')                
             },
             get email(){
-                return cy.get('input[type="email"]')                
+                return cy.get('input[type="email"]')               
             },
             get password(){
                 return cy.get('input[type="password"]')                
