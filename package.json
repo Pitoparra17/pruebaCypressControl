@@ -1,0 +1,31 @@
+{
+  "name": "pruebacypresscontrol",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "limpiar-reporte": "rimraf ./allure-report && rimraf ./allure-results",
+    "ejecutar-pruebas": "cypress run --headed --env allure=true",
+    "generar-reporte": "allure generate allure-results -o allure-report --clean",
+    "abrir-reporte": "npx allure open",
+    "test": "npm run limpiar-reporte && (npm run ejecutar-pruebas || true) && npm run generar-reporte && npm run abrir-reporte"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pitoparra17/pruebaCypressControl.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pitoparra17/pruebaCypressControl/issues"
+  },
+  "homepage": "https://github.com/Pitoparra17/pruebaCypressControl#readme",
+  "devDependencies": {
+    "cypress": "^15.1.0"
+  },
+  "dependencies": {
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "allure-commandline": "^2.34.1"
+  }
+}
