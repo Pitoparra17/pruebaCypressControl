@@ -47,7 +47,7 @@ export class newPostMethod{
             logger.subStep('insertar nuevo asunto')
             this.insertSubject(editSubject)
             logger.subStep('insertar nuevo cuerpo del articulo')
-            this.insertBodyArticule(editArticuleTitlebodyArticule)
+            this.insertBodyArticule(editBodyArticule)
             logger.subStep('insertar nuevo tags')
             this.insertTags(tags)
             logger.subStep('dar clic boton publicar')
