@@ -2,10 +2,15 @@ import { loginMethod } from "./pages/login/login.method"
 import { registerMethod } from "./pages/register/register.method"
 import { registerData } from "./pages/register/registes.data"
 import { logger } from "./util/logger";
+import { newPostData } from "./pages/newPost/newPost.data";
+import {newPostMethod } from "./pages/newPost/newPost.method";
 
 describe('template spec', () => {
   
   const { userName, email, password } = registerData.newUser;
+  const {articuleTitle,subject,bodyArticule,tags}= newPostData.newPost;
+  const {editArticuleTitle,editSubject,editBodyArticule,editTags}= newPostData.newPost;
+
 
   it('SignUP', () => {
 
@@ -44,7 +49,26 @@ describe('template spec', () => {
     logger.verification('valida el nombre del usuario al iniciar sesion')
     cy.get(`a.nav-link[href="/@${userName}"]`).should('contain.text', userName);
     
-    
+    logger.stepNumber(8)
+    logger.step('rellenar formulario de articulo')
+    newPostMethod.newPost(articuleTitle,subject,bodyArticule,tags)
+    logger.verification('valida el nombre del articulo')
+    cy.contains('h1', articuleTitle)
+    logger.verification('valida el nuevo cuerpo del articulo')
+    cy.contains('p', bodyArticule)
+
+    logger.stepNumber(9)
+    logger.step('editar post de formulario')
+    newPostMethod.editNewPost(editArticuleTitle,editSubject,editBodyArticule,editTags)
+    logger.verification('valida el nuevo nombre del articulo')
+    cy.contains('h1', editArticuleTitle)
+    logger.verification('valida el nuevo cuerpo del articulo')
+    cy.contains('p', editBodyArticule)
+
+    logger.stepNumber(9)
+    logger.step('editar post de formulario')
+    newPostMethod.deleteNewPost()
+
     cy.wait(3000)
   })
 })
