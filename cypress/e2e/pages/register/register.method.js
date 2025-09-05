@@ -11,15 +11,15 @@ export class registerMethod{
         registerElement.textboxes.password.invoke('val',password)
     }
 
-    static clickOnSingInButton(){
+    static clickOnSignUpButton(){
         registerElement.buttons.singUp.click()
     }
 
-    static singUp(username,email,password){
+    static signUp(username,email,password){
         this.insertUserName(username)
         this.insertEmail(email)
         this.insertPassword(password)
-        this.clickOnSingInButton()
+        this.clickOnSignUpButton()
     }
 
 }

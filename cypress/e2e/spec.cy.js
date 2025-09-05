@@ -1,31 +1,38 @@
+import { loginMethod } from "./pages/login/login.method"
+import { registerMethod } from "./pages/register/register.method"
 import { registerData } from "./pages/register/registes.data"
 
 describe('template spec', () => {
-  it('SingIn', () => {
+  
+  const { userName, email, password } = registerData.newUser;
 
-    const userName = registerData.newUser.userName
-    const email = registerData.newUser.email
-    const password = registerData.newUser.password
+  it('SignUP', () => {
+
+    //const userName = registerData.newUser.userName
+    //const email = registerData.newUser.email
+    //const password = registerData.newUser.password
 
     cy.visit('http://localhost:4100/')
 
     cy.get('a[href="/register"]').click()
 
-    registerData.SingUp(userName,email,password)
+    registerMethod.signUp(userName,email,password)
 
-    cy.get('.nav-link').should('contain.text', userName);
+    //cy.get('.nav-link').should('contain.text', userName);
+    cy.get(`a.nav-link[href="/@${userName}"]`).should('contain.text', userName);
     cy.wait(3000)
   }),
 
-    it('LogIn', () => {
+    it('SignIn', () => {
 
     cy.visit('http://localhost:4100/')
 
     cy.get('a[href="/login"]').click()
 
-    registerData.SingUp(userName,email,password)
+    loginMethod.signIn(email,password)
 
-    cy.get('.nav-link').should('contain.text', userName);
+    //cy.get('.nav-link').should('contain.text', userName);
+    cy.get(`a.nav-link[href="/@${userName}"]`).should('contain.text', userName);
     cy.wait(3000)
   })
 })
