@@ -15,16 +15,16 @@ export class newPostElement{
     static get textboxes(){
         return{
             get articuleTitle(){
-                return cy.get('input[placeholder="Article Title"]')                
+                return cy.get('input[placeholder="Article Title"]').clear()            
             },
             get subject(){
-                return cy.get('input[placeholder="What\'s this article about?"]')               
+                return cy.get('input[placeholder="What\'s this article about?"]').clear()                
             },
             get bodyArticule(){
-                return cy.get('textarea[placeholder="Write your article (in markdown)"]')                
+                return cy.get('textarea[placeholder="Write your article (in markdown)"]').clear()              
             },
             get tags(){
-                return cy.get('input[placeholder="Enter tags"]')                
+                return cy.get('input[placeholder="Enter tags"]').clear()                
             }
         }
     }

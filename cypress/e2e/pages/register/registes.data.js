@@ -1,9 +1,9 @@
 export class registerData{
     static get newUser(){
         return{
-            userName:'random03',
-            email:'random03@dominio.com',
-            password:'random03'
+            userName:'random09',
+            email:'random09@dominio.com',
+            password:'random09'
         }
     }
 }

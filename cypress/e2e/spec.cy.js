@@ -48,24 +48,32 @@ describe('template spec', () => {
     loginMethod.signIn(email,password)
     logger.verification('valida el nombre del usuario al iniciar sesion')
     cy.get(`a.nav-link[href="/@${userName}"]`).should('contain.text', userName);
-    
+
     logger.stepNumber(8)
+    logger.step('ingresar a newpost header')
+    cy.get('a[href="/editor"]').click()
+    
+    logger.stepNumber(9)
     logger.step('rellenar formulario de articulo')
     newPostMethod.newPost(articuleTitle,subject,bodyArticule,tags)
+    cy.get('button[type="button"]').trigger('click')
+    cy.wait(5000)
     logger.verification('valida el nombre del articulo')
     cy.contains('h1', articuleTitle)
     logger.verification('valida el nuevo cuerpo del articulo')
     cy.contains('p', bodyArticule)
 
-    logger.stepNumber(9)
+    logger.stepNumber(10)
     logger.step('editar post de formulario')
     newPostMethod.editNewPost(editArticuleTitle,editSubject,editBodyArticule,editTags)
+    cy.get('button[type="button"]').trigger('click')
+    cy.wait(5000)
     logger.verification('valida el nuevo nombre del articulo')
     cy.contains('h1', editArticuleTitle)
     logger.verification('valida el nuevo cuerpo del articulo')
     cy.contains('p', editBodyArticule)
 
-    logger.stepNumber(9)
+    logger.stepNumber(11)
     logger.step('editar post de formulario')
     newPostMethod.deleteNewPost()
 

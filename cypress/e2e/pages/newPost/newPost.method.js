@@ -37,11 +37,13 @@ export class newPostMethod{
             this.insertBodyArticule(bodyArticule)
             logger.subStep('insertar tags')
             this.insertTags(tags)
-            logger.subStep('dar clic boton publicar')
-            this.clickOnPublishArticule()
+            //logger.subStep('dar clic boton publicar')
+            //this.clickOnPublishArticule()
         }
 
             static editNewPost(editArticuleTitle,editSubject,editBodyArticule,tags){
+            logger.subStep('dar click para editar articulo')
+            this.clickOnEditArticule()
             logger.subStep('insertar nuevo titulo')
             this.insertArticuleTitle(editArticuleTitle)
             logger.subStep('insertar nuevo asunto')
@@ -50,8 +52,8 @@ export class newPostMethod{
             this.insertBodyArticule(editBodyArticule)
             logger.subStep('insertar nuevo tags')
             this.insertTags(tags)
-            logger.subStep('dar clic boton publicar')
-            this.clickOnPublishArticule()
+            //logger.subStep('dar clic boton publicar')
+            //this.clickOnPublishArticule()
         }
 
         static deleteNewPost(){
